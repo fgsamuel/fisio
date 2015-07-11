@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'zyt(#bnq#!q-$z^!r&3741&7m**#y9vyew+pzqud1ssgi%vovb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -91,8 +91,7 @@ DATABASES = {
     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
     'default': {
-        #'ENGINE': 'django.db.backends.mysql',
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'fisio',
         'USER': 'root',
         'PASSWORD': 'root',
@@ -100,9 +99,6 @@ DATABASES = {
     }
 }
 
-import dj_database_url
-
-DATABASES['default'] = dj_database_url.config()
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -123,8 +119,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = 'staticfiles'
-
 #arquivos statics para toda a aplicação
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
@@ -142,5 +136,3 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         "LOCATION": '/tmp/file_resubmit/'
     }}
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

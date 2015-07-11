@@ -48,7 +48,7 @@ def editar(request, pessoaId, Classe):
     obj = Classe()
     objForm = obj.form()
     TelefoneModel = obj.telefone_model()
-    FormSet = inlineformset_factory(Classe, TelefoneModel, fields='__all__', extra=0, can_delete=True)
+    FormSet = inlineformset_factory(Classe, TelefoneModel, fields='__all__', extra=1, can_delete=True)
 
     try:
         pessoa = Classe.objects.get(pk=pessoaId)
