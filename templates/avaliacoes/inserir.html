@@ -36,71 +36,76 @@
 			<h2>Anamnese</h2>
 
 			<!-- Nav tabs -->
-			<ul class="nav nav-tabs" role="tablist">
+			<!-- ul class="nav nav-tabs" role="tablist" -->
+			<ul class="nav nav-pills nav-stacked col-md-2">
 				<li role="presentation" class="active"><a href="#objetivos"	aria-controls="objetivos" role="tab" data-toggle="tab">Objetivos</a></li>
 				<li role="presentation"><a href="#historico" aria-controls="historico" role="tab" data-toggle="tab">Histórico</a></li>
 				<li role="presentation"><a href="#parq" aria-controls="parq" role="tab" data-toggle="tab">Formulário PAR-Q</a></li>
 				<li role="presentation"><a href="#dadosVitais" aria-controls="dadosVitais" role="tab" data-toggle="tab">Dados Vitais</a></li>
 			</ul>
 
-			<div class="tab-content">
-
-				<div role="tabpanel" class="tab-pane active" id="objetivos">
-					{{ forms.objetivosForm.as_p }}
-				</div>
-
-
-				<div role="tabpanel" class="tab-pane" id="historico">
-
-					{% comment %} Cada um dos botões a seguir tem informações q são
-					passadas para o método 'ajax' e posteriormente para o submit do
-					formulário 'formAjax' as funções estão no arquivo
-					simpleClassAjaxForm que está na tag scripts, mas é colocada na
-					parte inferior no template. {% endcomment %}
+			<div class="tab-content col-md-10">
+				<div class="tab-content">
+	
+					<div role="tabpanel" class="tab-pane active" id="objetivos">
+						{{ forms.objetivosForm.as_p }}
+					</div>
+	
+	
+					<div role="tabpanel" class="tab-pane" id="historico">
+	
+						{% comment %} Cada um dos botões a seguir tem informações q são
+						passadas para o método 'ajax' e posteriormente para o submit do
+						formulário 'formAjax' as funções estão no arquivo
+						simpleClassAjaxForm que está na tag scripts, mas é colocada na
+						parte inferior no template. {% endcomment %}
+						
+						<br>
+						<br>
+						<button type="button" atualizarIds='#id_historico-atividades_fisicas' type="button" class="btn btn-warning" url={% url 'form_ajax_atividade_fisica'%} onclick="ajax(this)">Adicionar
+							Atividade Física
+						</button>
+						<button type="button" atualizarIds='#id_historico-doencas, #id_historico-historico_familiar_doencas' class="btn btn-warning" url={% url 'form_ajax_doenca'%} onclick="ajax(this)">Adicionar
+							Doença
+						</button>
+						<button type="button" atualizarIds='#id_historico-cirurgias' type="button" class="btn btn-warning" url={% url 'form_ajax_cirurgia'%} onclick="ajax(this)">Adicionar
+							Cirurgia
+						</button>
+						<button type="button" atualizarIds='#id_historico-medicacoes' type="button" class="btn btn-warning" url={% url 'form_ajax_medicacao'%} onclick="ajax(this)">Adicionar
+							Medicação
+						</button>
+						
+						<br>
+						<br>
+						
+						{{ forms.historicoForm.as_p }}
+					</div>
 					
-					<br>
-					<br>
-					<button type="button" atualizarIds='#id_historico-atividades_fisicas' type="button" class="btn btn-primary" url={% url 'form_ajax_atividade_fisica'%} onclick="ajax(this)">Adicionar
-						Atividade Física
-					</button>
-					<button type="button" atualizarIds='#id_historico-doencas, #id_historico-historico_familiar_doencas' class="btn btn-primary" url={% url 'form_ajax_doenca'%} onclick="ajax(this)">Adicionar
-						Doença
-					</button>
-					<button type="button" atualizarIds='#id_historico-cirurgias' type="button" class="btn btn-primary" url={% url 'form_ajax_cirurgia'%} onclick="ajax(this)">Adicionar
-						Cirurgia
-					</button>
-					<button type="button" atualizarIds='#id_historico-medicacoes' type="button" class="btn btn-primary" url={% url 'form_ajax_medicacao'%} onclick="ajax(this)">Adicionar
-						Medicação
-					</button>
+					<div role="tabpanel" class="tab-pane" id="parq">
+						{{ forms.parqForm.as_p }}
+					</div>
 					
-					<br>
-					<br>
-					
-					{{ forms.historicoForm.as_p }}
+					<div role="tabpanel" class="tab-pane" id="dadosVitais">
+						{{ forms.dadosVitaisForm.as_p }}
+					</div>
+	
 				</div>
-				
-				<div role="tabpanel" class="tab-pane" id="parq">
-					{{ forms.parqForm.as_p }}
-				</div>
-				
-				<div role="tabpanel" class="tab-pane" id="dadosVitais">
-					{{ forms.dadosVitaisForm.as_p }}
-				</div>
-
+	
 			</div>
-
 		</div>
 
 		<div role="tabpanel" class="tab-pane" id="antropometria">
 			<h2>Antropometria</h2>
 
 			<!-- Nav tabs -->
-			<ul class="nav nav-tabs" role="tablist">
+			<!-- ul class="nav nav-tabs" role="tablist" -->
+			<ul class="nav nav-pills nav-stacked col-md-2">
 				<li role="presentation" class="active"><a href="#circunferencias" aria-controls="circunferencias" role="tab" data-toggle="tab">Circunferências</a></li>
 				<li role="presentation"><a href="#pesoAltura" aria-controls="pesoAltura" role="tab" data-toggle="tab">Peso e Altura</a></li>
 				<li role="presentation"><a href="#plicometria" aria-controls="plicometria" role="tab" data-toggle="tab">Plicometria</a></li>
 			</ul>
-
+			
+			<div class="tab-content col-md-10">
 			<div class="tab-content">
 
 				<div role="tabpanel" class="tab-pane active" id="circunferencias">
@@ -117,6 +122,7 @@
 
 			</div>
 
+			</div>
 		</div>
 		
 		<div role="tabpanel" class="tab-pane" id="postura">
@@ -146,7 +152,7 @@
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">
-						<sapn id='verbose' />
+						<span id='verbose'> </span>
 					</h4>
 				</div>
 				<div class="modal-body">
